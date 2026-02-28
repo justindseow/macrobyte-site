@@ -1,20 +1,20 @@
-export default function EnContact() {
+export default function ZhContact() {
   return (
     <main className="page">
       <div className="container narrow">
-        <h1 className="page-title">Get a Quote</h1>
+        <h1 className="page-title">获取报价</h1>
         <p className="page-lead">
-          Tell us about your business. We’ll reply with a simple monthly plan.
+          告诉我们您的业务情况，我们会回复一个简单的月度方案。
         </p>
 
         <form className="form">
-          <input className="input" placeholder="Name" />
-          <input className="input" placeholder="Company" />
-          <input className="input" placeholder="Email" />
+          <input className="input" placeholder="姓名" />
+          <input className="input" placeholder="公司" />
+          <input className="input" placeholder="电子邮箱" />
 
           <select className="input" defaultValue="">
             <option value="" disabled>
-              Monthly transactions (estimate)
+              每月交易数量（预估）
             </option>
             <option>0–50</option>
             <option>51–200</option>
@@ -22,21 +22,21 @@ export default function EnContact() {
             <option>500+</option>
           </select>
 
-          <textarea className="input" placeholder="Message" rows={5} />
+          <textarea className="input" placeholder="留言" rows={5} />
 
           <button type="button" className="btn-primary">
-            Submit
+            提交
           </button>
         </form>
 
         <div className="center-note">
           <a
             className="link"
-            href="https://wa.me/60134700013?text=Hi%20MacroByte,%20I%27m%20interested%20in%20monthly%20bookkeeping.%20My%20estimated%20monthly%20transactions%20are%20____."
+            href="https://wa.me/60134700013?text=Hi%20MacroByte,%20我有兴趣了解每月记账服务。我的每月交易数量大约是____。"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Prefer WhatsApp? Click here
+            更喜欢 WhatsApp？点击这里
           </a>
         </div>
       </div>

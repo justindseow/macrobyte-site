@@ -1,60 +1,60 @@
 import Link from "next/link";
 
 const WHATSAPP_LINK =
-  "https://wa.me/60134700013?text=Hi%20MacroByte.%20I%27d%20like%20to%20ask%20about%20your%20bookkeeping%20service.";
+  "https://wa.me/60134700013?text=Hi%20MacroByte.%20我想了解你们的记账服务。";
 
-export default function ServicesENPage() {
+export default function ServicesZHPage() {
   return (
     <main className="page">
       <div className="container">
-        <h1 className="page-title">Bookkeeping as a Service (BaaS)</h1>
+        <h1 className="page-title">记账服务（BaaS）</h1>
 
         <p className="page-lead">
-          Reliable monthly bookkeeping for MSMEs and SMEs across Malaysia — designed
-          for clarity, consistency, and smoother month-end.
+          为马来西亚各地的中小微企业提供可靠的月度记账服务 — 追求清晰、
+          一致，让月结更顺畅。
         </p>
 
         <div className="grid-2">
           <div className="card">
-            <h3>Monthly Bookkeeping &amp; Reconciliation</h3>
-            <p>Bank matching, categorisation, month-end close.</p>
+            <h3>月度记账与对账</h3>
+            <p>银行对账、分类整理、月末结账。</p>
           </div>
 
           <div className="card">
-            <h3>Income &amp; Expense Tracking</h3>
-            <p>Clear tracking so your numbers make sense.</p>
+            <h3>收入与支出记录</h3>
+            <p>清晰记录，让你的数字更容易看懂。</p>
           </div>
 
           <div className="card">
-            <h3>Accounts Receivable &amp; Payable</h3>
-            <p>Track what’s due and what you owe.</p>
+            <h3>应收与应付管理</h3>
+            <p>跟踪该收的款与该付的款。</p>
           </div>
 
           <div className="card">
-            <h3>Management Reports</h3>
-            <p>Understand performance at a glance, every month.</p>
+            <h3>管理报表</h3>
+            <p>每月一目了然地了解经营表现。</p>
           </div>
 
           <div className="card">
-            <h3>Catch-up / Clean-up Bookkeeping</h3>
-            <p>Get your books back in order.</p>
+            <h3>补账 / 清账服务</h3>
+            <p>把账目补齐整理，让账本回到正轨。</p>
           </div>
 
           <div className="card">
-            <h3>Bookkeeping Health Check</h3>
-            <p>Spot issues early and fix the basics.</p>
+            <h3>账本健康检查</h3>
+            <p>尽早发现问题，把关键基础修好。</p>
           </div>
         </div>
 
         <div className="panel-light">
-          <h2 className="section-title">What you receive each month</h2>
+          <h2 className="section-title">每月你会收到</h2>
 
           <ul className="list">
-            <li>Profit &amp; Loss Statement</li>
-            <li>Balance Sheet</li>
-            <li>Transaction Summary</li>
-            <li>Cashflow View</li>
-            <li>Questions / Notes follow-up</li>
+            <li>损益表</li>
+            <li>资产负债表</li>
+            <li>交易汇总</li>
+            <li>现金流视图</li>
+            <li>问题 / 备注跟进</li>
           </ul>
 
           <div
@@ -77,18 +77,18 @@ export default function ServicesENPage() {
                 boxShadow: "0 12px 24px rgba(37,99,235,0.18)",
               }}
             >
-              Talk on WhatsApp
+              WhatsApp 咨询
             </a>
 
             <Link
-              href="/en/contact"
+              href="/zh/contact"
               className="btn-secondary"
               style={{
                 padding: "8px 14px",
                 fontSize: "14px",
               }}
             >
-              Reach Out to Us
+              联系我们
             </Link>
           </div>
         </div>

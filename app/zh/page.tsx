@@ -1,7 +1,7 @@
-// app/bm/page.tsx
-export default function BmHome() {
+// app/zh/page.tsx
+export default function ZhHome() {
   const waHome =
-    "https://wa.me/60134700013?text=Hi%20MacroByte,%20Saya%20berminat%20dengan%20perkhidmatan%20akaun%20bulanan.%20Anggaran%20transaksi%20bulanan%20saya%20adalah%20____.";
+    "https://wa.me/60134700013?text=Hi%20MacroByte,%20我有兴趣了解每月记账服务。我来自首页。我的每月交易数量大约是____。";
 
   return (
     <main className="hero">
@@ -12,17 +12,17 @@ export default function BmHome() {
             className="badge"
             style={{ alignSelf: "flex-start", width: "fit-content" }}
           >
-            Dibina untuk PKS Malaysia
+            为马来西亚中小微企业打造
           </span>
 
           <h1 className="h1">
-            Perakaunan diurus dengan betul. Tanpa kerumitan.
+            账目妥善处理。无需烦恼。
           </h1>
 
           <p className="lead">
-            Perkhidmatan perakaunan bulanan yang boleh dipercayai untuk PKS Malaysia.
-            Kami mengurus rekod, rekonsiliasi dan laporan supaya anda tidak memerlukan
-            perisian tambahan atau kakitangan tambahan.
+            为马来西亚中小微企业提供可靠的每月记账服务。
+            我们负责您的记录、对账与报告，
+            您无需额外软件或额外员工。
           </p>
         </section>
 
@@ -30,25 +30,27 @@ export default function BmHome() {
         <aside className="panel hero-panel">
           <div className="panel-grid">
             <div className="card">
-              <h3>Buku Kemas</h3>
+              <h3>账目清晰</h3>
               <p>
-                Rekonsiliasi bulanan, pengkategorian tepat, dan lejar yang sentiasa
-                dikemas kini.
+                每月对账、正确分类，账本保持整洁并及时更新。
               </p>
             </div>
 
             <div className="card">
-              <h3>Nombor Jelas</h3>
+              <h3>数字透明</h3>
               <p>
-                Laporan bulanan ringkas yang menunjukkan aliran wang anda.
-                Tanpa istilah perakaunan yang mengelirukan.
+                简洁易懂的每月报告，让您清楚资金流向。
+                没有复杂的会计术语。
               </p>
             </div>
 
             <div className="card card-wide card-wide-fill">
               <div>
-                <h3>Diurus Sepenuhnya</h3>
-                <p>Hantar dokumen anda. Kami uruskan selebihnya. Tiada perisian tambahan diperlukan.</p>
+                <h3>全程代办</h3>
+                <p>
+                  您只需提供资料，我们负责其余事项。
+                  无需额外软件。
+                </p>
               </div>
 
               <div className="card-actions card-actions-duo">
@@ -58,11 +60,11 @@ export default function BmHome() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Hubungi melalui WhatsApp
+                  WhatsApp 联系
                 </a>
 
-                <a className="btn-outline-dark" href="/bm/contact">
-                  Hubungi Kami
+                <a className="btn-outline-dark" href="/zh/contact">
+                  联系我们
                 </a>
               </div>
             </div>

@@ -3,37 +3,37 @@
 import { usePathname } from "next/navigation";
 
 export default function Header() {
-  const pathname = usePathname();
-  const isBM = pathname?.startsWith("/bm");
-  const base = isBM ? "/bm" : "/en";
+  const pathname = usePathname() || "/en";
+
+  const isBM = pathname.startsWith("/bm");
+  const isZH = pathname.startsWith("/zh");
+
+  const base = isBM ? "/bm" : isZH ? "/zh" : "/en";
+
+  const t = {
+    services: isBM ? "Servis" : isZH ? "服务" : "Services",
+    pricing: isBM ? "Harga" : isZH ? "价格" : "Pricing",
+    faq: isBM ? "Soalan Lazim" : isZH ? "常见问题" : "FAQ",
+    contact: isBM ? "Hubungi" : isZH ? "联系" : "Contact",
+  };
 
   return (
     <header className="site-header">
       <div className="container site-header-inner">
-        {/* not clickable */}
-        <div className="brand">
-          Buku<span className="accent">Ledger</span>
-        </div>
+        {/* clickable brand */}
+        <a className="brand" href={base}>
+          Macro<span className="accent">Byte</span>
+        </a>
 
         <nav className="nav">
-          <a href="/en">EN</a>
-          <a href="/bm">BM</a>
+          <a href="/en" className={!isBM && !isZH ? "active" : ""}>EN</a>
+          <a href="/bm" className={isBM ? "active" : ""}>BM</a>
+          <a href="/zh" className={isZH ? "active" : ""}>ZH</a>
 
-          <a href={`${base}/services`}>
-            {isBM ? "Servis" : "Services"}
-          </a>
-
-          <a href={`${base}/pricing`}>
-            {isBM ? "Harga" : "Pricing"}
-          </a>
-
-          <a href={`${base}/faq`}>
-            {isBM ? "Soalan Lazim" : "FAQ"}
-          </a>
-
-          <a href={`${base}/contact`}>
-            {isBM ? "Hubungi" : "Contact"}
-          </a>
+          <a href={`${base}/services`}>{t.services}</a>
+          <a href={`${base}/pricing`}>{t.pricing}</a>
+          <a href={`${base}/faq`}>{t.faq}</a>
+          <a href={`${base}/contact`}>{t.contact}</a>
         </nav>
       </div>
     </header>

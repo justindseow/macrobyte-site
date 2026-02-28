@@ -2,9 +2,9 @@ export default function BmContact() {
   return (
     <main className="page">
       <div className="container narrow">
-        <h1 className="page-title">Minta Sebut Harga</h1>
+        <h1 className="page-title">Dapatkan Sebut Harga</h1>
         <p className="page-lead">
-          Kongsi sedikit tentang bisnes anda. Kami akan balas dengan pelan bulanan yang ringkas.
+          Beritahu kami tentang perniagaan anda. Kami akan balas dengan pelan bulanan yang ringkas.
         </p>
 
         <form className="form">
@@ -13,7 +13,9 @@ export default function BmContact() {
           <input className="input" placeholder="Emel" />
 
           <select className="input" defaultValue="">
-            <option value="" disabled>Anggaran transaksi bulanan</option>
+            <option value="" disabled>
+              Anggaran transaksi bulanan
+            </option>
             <option>0–50</option>
             <option>51–200</option>
             <option>201–500</option>
@@ -22,15 +24,19 @@ export default function BmContact() {
 
           <textarea className="input" placeholder="Mesej" rows={5} />
 
-          <button type="button" className="btn-primary">Hantar</button>
+          <button type="button" className="btn-primary">
+            Hantar
+          </button>
         </form>
 
         <div className="center-note">
           <a
             className="link"
-            href="https://wa.me/60123456789?text=Hi%20BukuLedger%2C%20saya%20berminat%20dengan%20servis%20simpan%20kira.%20Syarikat%3A%20____%20Industri%3A%20____%20Transaksi%2Fbulan%3A%20____"
+            href="https://wa.me/60134700013?text=Hi%20MacroByte,%20Saya%20berminat%20dengan%20perkhidmatan%20akaun%20bulanan.%20Anggaran%20transaksi%20bulanan%20saya%20adalah%20____."
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Prefer WhatsApp? Klik sini
+            Lebih suka WhatsApp? Klik di sini
           </a>
         </div>
       </div>

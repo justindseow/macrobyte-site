@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <footer className="site-footer">
           <div className="container site-footer-inner">
-            <p>© {new Date().getFullYear()} BukuLedger Malaysia</p>
+            <p>© {new Date().getFullYear()} MacroByte</p>
             <p className="muted">Bookkeeping for MSMEs & SMEs across Malaysia</p>
           </div>
         </footer>

@@ -1,8 +1,8 @@
 export default function EnFaq() {
   const faqs = [
     {
-      q: "What is included in your bookkeeping service?",
-      a: "Our service includes monthly reconciliation, transaction categorisation, basic management reports, and ongoing support for your bookkeeping needs.",
+      q: "What is included in your service?",
+      a: "Our service includes monthly reconciliation, transaction categorisation, management reports and ongoing support for your bookkeeping needs.",
     },
     {
       q: "Do I need to use Xero or any accounting software?",
@@ -10,23 +10,19 @@ export default function EnFaq() {
     },
     {
       q: "How much does your service cost?",
-      a: "Pricing depends mainly on your monthly transaction volume. We will propose a simple monthly fee after understanding your business.",
+      a: "Our standard fee starts from RM699 per month. That covers proper monthly bookkeeping, reconciliation, and ongoing support. It scales gradually based on volume, so there are no sudden jumps as you grow.",
     },
     {
       q: "How do I send you my documents?",
-      a: "You can send documents via WhatsApp, email, Google Drive, or any format that is convenient for you.",
+      a: "You will be provided with a secure folder dedicated to your account. Simply upload your documents there and we’ll take care of the rest.",
     },
     {
       q: "How long does it take to complete monthly bookkeeping?",
-      a: "Most clients receive their monthly reports within 5 to 7 working days after submitting complete documents.",
+      a: "MMost clients receive their monthly reports within 7 business days after submitting complete documents.",
     },
     {
       q: "Can you help with overdue or messy accounts?",
-      a: "Yes. We provide clean-up and catch-up bookkeeping services to bring your accounts back in order.",
-    },
-    {
-      q: "Do you provide accounting and tax services?",
-      a: "Currently, we focus on bookkeeping. Accounting and tax services may be added in the future through our partners.",
+      a: "Yes. We provide clean-up and catch-up services to bring your accounts back in order.",
     },
   ];
 

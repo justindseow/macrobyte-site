@@ -3,14 +3,20 @@
 /* ===== Reset / base ===== */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
+
 body{
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-  background: radial-gradient(1200px 800px at 15% 20%, #0b2a6f 0%, #061640 45%, #030a24 100%);
+  background: #0b1f4d;
   color: #fff;
 }
 
-/* Links default */
+main{ flex: 1; }
+
 a{ color: inherit; }
 
 /* ===== Layout container ===== */
@@ -70,13 +76,23 @@ a{ color: inherit; }
 
 /* ===== Hero ===== */
 .hero{
-  padding: 64px 0 80px;
+  padding: 56px 0 28px;
 }
+
+/* IMPORTANT:
+   The row height follows the LEFT column (content),
+   and the RIGHT panel is forced to fit that height. */
 .hero-grid{
   display:grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 48px;
-  align-items: center;
+  align-items: start;          /* do NOT stretch to the taller panel */
+}
+
+/* Left column */
+.hero-left{
+  display:flex;
+  flex-direction: column;
 }
 
 /* Badge */
@@ -107,20 +123,7 @@ a{ color: inherit; }
   max-width: 58ch;
 }
 
-/* CTA row */
-.cta-row{
-  margin-top: 26px;
-  display:flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.note{
-  margin-top: 14px;
-  color: rgba(255,255,255,0.76);
-  font-size: 13px;
-}
-
-/* Buttons */
+/* Buttons (global) */
 .btn-primary, .btn-secondary{
   display:inline-flex;
   align-items:center;
@@ -151,25 +154,60 @@ a{ color: inherit; }
   box-shadow: 0 14px 28px rgba(0,0,0,0.16);
 }
 
+/* Outline button (for white card backgrounds) */
+.btn-outline-dark{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 800;
+  text-decoration:none;
+
+  background: transparent;
+  border: 1.5px solid #cbd5e1;
+  color: #0f172a;
+
+  transition: transform 150ms ease, background 150ms ease, border-color 150ms ease;
+}
+.btn-outline-dark:hover{
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+
 /* ===== Right panel / cards ===== */
+/* Make right panel fit the LEFT side height (the whole point) */
+.hero-panel{
+  height: 100%;
+  align-self: stretch; /* stretch within the grid cell */
+}
+
+/* Panel wrapper */
 .panel{
   background: rgba(255,255,255,0.14);
   border: 1px solid rgba(255,255,255,0.14);
   border-radius: 20px;
-  padding: 18px;
+  padding: 16px;               /* slightly tighter than before */
   backdrop-filter: blur(10px);
+  height: 100%;
 }
+
+/* Grid inside panel */
 .panel-grid{
+  height: 100%;
   display:grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 12px;                   /* slightly tighter */
 }
+
+/* Cards */
 .card{
   background: #f8fafc;
   color: #0f172a;
   border: 1px solid #e5e7eb;
   border-radius: 16px;
-  padding: 16px;
+  padding: 14px;               /* slightly tighter */
   box-shadow: 0 18px 40px rgba(0,0,0,0.22);
 }
 .card h3{
@@ -181,20 +219,40 @@ a{ color: inherit; }
 .card p{
   margin: 0;
   color: #334155;
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 13.5px;           /* slightly tighter */
+  line-height: 1.45;           /* slightly tighter */
   font-weight: 600;
 }
+
 .card-wide{ grid-column: 1 / -1; }
+
+/* Fully managed card */
+.card-wide-fill{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;  /* keeps CTA at the bottom of the card */
+}
+
+/* CTA row inside the white card */
 .card-actions{
   margin-top: 12px;
   display:flex;
   gap: 10px;
-  flex-wrap: wrap;
 }
 
-/* ===== Inner pages (services/contact) ===== */
-.page{ padding: 56px 0 80px; }
+/* force 2 buttons side-by-side */
+.card-actions-duo{
+  flex-wrap: nowrap;
+}
+.card-actions-duo a{
+  flex: 1;
+  min-width: 0;
+}
+
+/* ===== Inner pages ===== */
+.page{
+  padding: 56px 0 80px;
+}
 .narrow{ width: min(760px, calc(100% - 48px)); }
 
 .page-title{
@@ -258,8 +316,8 @@ a{ color: inherit; }
 
 /* ===== Footer ===== */
 .site-footer{
-  border-top: 1px solid rgba(255,255,255,0.10);
-  margin-top: 40px;
+  border-top: none;
+  margin-top: 0;
   background: rgba(10, 18, 45, 0.35);
   backdrop-filter: blur(10px);
 }
@@ -276,12 +334,165 @@ a{ color: inherit; }
   color: rgba(255,255,255,0.62);
 }
 
+/* ===================================================== */
+/* ===== Pricing page only (kept as-is) ================= */
+/* ===================================================== */
+
+.pricing-page .pricing-card{
+  margin: 26px auto 0;
+  width: min(720px, 100%);
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 22px;
+  padding: 26px;
+}
+
+.pricing-page .pricing-top{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.pricing-page .pricing-kicker{
+  font-size: 14px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.70);
+}
+
+.pricing-page .pricing-figure{
+  display:flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.pricing-page .pricing-currency{
+  font-size: 16px;
+  font-weight: 900;
+  opacity: 0.92;
+}
+
+.pricing-page .pricing-number{
+  font-size: clamp(56px, 7vw, 72px);
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color:#ffffff;
+}
+
+.pricing-page .pricing-per{
+  font-size: 14px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.70);
+}
+
+.pricing-page .pricing-divider{
+  margin: 18px 0 14px;
+  height: 1px;
+  background: rgba(255,255,255,0.10);
+}
+
+.pricing-page .pricing-points{
+  margin: 0 auto;
+  width: min(520px, 100%);
+  padding-left: 18px;
+  line-height: 1.8;
+  font-size: 14px;
+  font-weight: 650;
+  color: rgba(255,255,255,0.92);
+}
+
+.pricing-page .pricing-actions{
+  margin-top: 18px;
+  display:flex;
+  justify-content: center;
+}
+
+.pricing-page .pricing-primary{
+  padding: 14px 24px;
+  border-radius: 14px;
+  min-width: 240px;
+}
+
+.pricing-page .pricing-footnote{
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: rgba(255,255,255,0.70);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.pricing-page .pricing-secondary{
+  margin: 14px auto 0;
+  width: min(720px, 100%);
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.pricing-page .pricing-mini{
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  padding: 20px;
+  display:flex;
+  flex-direction: column;
+  min-height: 170px;
+}
+
+.pricing-page .pricing-mini-title{
+  margin: 0;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.pricing-page .pricing-mini-text{
+  margin: 10px 0 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.80);
+  font-weight: 650;
+}
+
+.pricing-page .pricing-mini .btn-outline{
+  margin-top: auto;
+}
+
+.pricing-page .btn-outline{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 11px 16px;
+  border-radius: 12px;
+  font-weight: 850;
+  text-decoration:none;
+  border: 1px solid rgba(96,165,250,0.55);
+  color: rgba(96,165,250,0.95);
+  background: transparent;
+  transition: transform 150ms ease, background 150ms ease, border-color 150ms ease;
+}
+
+.pricing-page .btn-outline:hover{
+  transform: translateY(-1px);
+  background: rgba(96,165,250,0.10);
+  border-color: rgba(96,165,250,0.75);
+}
+
 /* ===== Mobile ===== */
 @media (max-width: 900px){
   .hero-grid{ grid-template-columns: 1fr; }
   .h1{ font-size: 40px; }
   .grid-2{ grid-template-columns: 1fr; }
+
+  .card-actions-duo{
+    flex-wrap: wrap;
+  }
+
+  .pricing-page .pricing-secondary{ grid-template-columns: 1fr; }
 }
+
 @media (max-width: 700px){
   .site-footer-inner{ flex-direction: column; align-items: flex-start; }
 }
