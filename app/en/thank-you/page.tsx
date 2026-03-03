@@ -4,9 +4,9 @@ export default function EnThankYou() {
   return (
     <main className="page">
       <div className="container narrow">
-        <h1 className="page-title">Thanks — received.</h1>
+        <h1 className="page-title">Thank you. We have received your request.</h1>
         <p className="page-lead">
-          We’ll reply by email with a simple monthly plan.
+          We will reply with a simple monthly plan.
         </p>
 
         <div className="center-note">

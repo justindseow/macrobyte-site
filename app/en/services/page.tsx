@@ -10,7 +10,7 @@ export default function ServicesENPage() {
         <h1 className="page-title">Bookkeeping as a Service (BaaS)</h1>
 
         <p className="page-lead">
-          Reliable monthly bookkeeping for MSMEs and SMEs across Malaysia — designed
+          Reliable monthly bookkeeping for SMEs across Malaysia — designed
           for clarity, consistency, and smoother month-end.
         </p>
 

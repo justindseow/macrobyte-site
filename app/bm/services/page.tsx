@@ -10,7 +10,7 @@ export default function ServicesBMPage() {
         <h1 className="page-title">Perakaunan sebagai Perkhidmatan (BaaS)</h1>
 
         <p className="page-lead">
-          Perkhidmatan perakaunan bulanan yang boleh dipercayai untuk MSME dan SME di
+          Perkhidmatan perakaunan bulanan yang dipercayai SME di
           seluruh Malaysia — direka untuk lebih jelas, konsisten, dan memudahkan
           kerja hujung bulan.
         </p>

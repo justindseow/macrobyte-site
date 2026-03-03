@@ -8,12 +8,12 @@ export default function EnHome() {
       <div className="container hero-grid">
         {/* LEFT */}
         <section className="hero-left">
-          <span className="badge" style={{ alignSelf: "flex-start", width: "fit-content" }}> Built for Malaysian MSMEs </span>
+          <span className="badge" style={{ alignSelf: "flex-start", width: "fit-content" }}> Built for Malaysian SMEs </span>
 
           <h1 className="h1">Bookkeeping handled properly. Without the hassle.</h1>
 
           <p className="lead">
-            Reliable monthly bookkeeping for Malaysian MSMEs. We manage your records,
+            Reliable monthly bookkeeping for Malaysian SMEs. We manage your records,
             reconciliations and reports so you do not need extra software, systems or staff.
           </p>
         </section>

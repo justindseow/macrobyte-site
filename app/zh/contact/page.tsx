@@ -7,24 +7,39 @@ export default function ZhContact() {
           告诉我们您的业务情况，我们会回复一个简单的月度方案。
         </p>
 
-        <form className="form">
-          <input className="input" placeholder="姓名" />
-          <input className="input" placeholder="公司" />
-          <input className="input" placeholder="电子邮箱" />
+        <form
+          className="form"
+          action="https://formsubmit.co/accounts@macrobyte.my"
+          method="POST"
+        >
+          {/* FormSubmit settings */}
+          <input type="hidden" name="_subject" value="New MacroByte Quote Request (ZH)" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://macrobyte.my/zh/thank-you" />
 
-          <select className="input" defaultValue="">
+          <input className="input" name="姓名" placeholder="姓名" required />
+          <input className="input" name="公司" placeholder="公司" required />
+          <input
+            className="input"
+            name="电子邮箱"
+            placeholder="电子邮箱"
+            type="email"
+            required
+          />
+
+          <select className="input" name="每月交易数量（预估）" defaultValue="" required>
             <option value="" disabled>
               每月交易数量（预估）
             </option>
-            <option>0–50</option>
-            <option>51–200</option>
-            <option>201–500</option>
-            <option>500+</option>
+            <option value="0-50">0–50</option>
+            <option value="51-200">51–200</option>
+            <option value="201-500">201–500</option>
+            <option value="500+">500+</option>
           </select>
 
-          <textarea className="input" placeholder="留言" rows={5} />
+          <textarea className="input" name="留言" placeholder="留言" rows={5} />
 
-          <button type="button" className="btn-primary">
+          <button type="submit" className="btn-primary">
             提交
           </button>
         </form>
