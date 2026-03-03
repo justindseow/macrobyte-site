@@ -6,7 +6,7 @@ export default function BmThankYou() {
       <div className="container narrow">
         <h1 className="page-title">Terima kasih</h1>
         <p className="page-lead">
-          Kami telah terima permintaan anda. Kami akan balas melalui emel dengan pelan bulanan yang ringkas.
+          Kami telah terima permintaan anda. Kami akan balas dengan pelan bulanan yang ringkas.
         </p>
 
         <div className="center-note">
