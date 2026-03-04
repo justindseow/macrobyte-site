@@ -2,7 +2,6 @@ import "./globals.css";
 import Header from "./components/Header";
 import type { Metadata } from "next";
 
-// You can edit these anytime
 const SITE_URL = "https://macrobyte.my";
 const BRAND = "MacroByte";
 
@@ -17,14 +16,13 @@ export const metadata: Metadata = {
   description:
     "Bookkeeping for SMEs across Malaysia. Perakaunan untuk SME di Malaysia.",
 
-  // Canonical should usually be the root (/) for the root layout.
-  // Each page can override canonical if needed.
   alternates: {
-    canonical: "/",
+    canonical: "/", // ✅ root canonical at site level
     languages: {
+      "x-default": "/en", // ✅ fallback
       "en-MY": "/en",
       "ms-MY": "/bm",
-      "zh-Hans-MY": "/zh", // Chinese (Simplified) for Malaysia
+      "zh-Hans-MY": "/zh",
 
       // optional generic fallbacks
       en: "/en",
@@ -35,20 +33,20 @@ export const metadata: Metadata = {
 
   icons: {
     icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    apple: "/apple-touch-icon.png", // ok if you don’t have it yet (won’t break)
   },
 
   openGraph: {
     title: `${BRAND} | SME Bookkeeping`,
     description:
       "Bookkeeping for SMEs across Malaysia. Perakaunan untuk SME di Malaysia.",
-    url: "/",
+    url: "/", // relative is fine because metadataBase is set
     siteName: BRAND,
     locale: "en_MY",
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.png", // ok if you don’t have it yet (won’t break)
         width: 1200,
         height: 630,
         alt: BRAND,
@@ -69,7 +67,6 @@ function JsonLd({ data }: { data: Record<string, any> }) {
   return (
     <script
       type="application/ld+json"
-      // JSON-LD must be a string
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
   );
@@ -80,37 +77,28 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Minimal LocalBusiness schema. Add fields only if you’re comfortable.
-  // If you don't want to show a phone/address yet, leave them out.
-  const localBusinessJsonLd = {
+  // ✅ Nationwide accounting/bookkeeping schema
+  const accountingServiceJsonLd = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "AccountingService",
     name: BRAND,
     url: SITE_URL,
     description:
-      "Professional bookkeeping for Malaysian SMEs. Monthly reconciliation, categorisation, and clear reports.",
+      "Bookkeeping service for Malaysian SMEs. Monthly reconciliation, categorisation, and clear reports.",
     areaServed: {
       "@type": "Country",
       name: "Malaysia",
     },
-    // Optional but helpful if true:
-    // telephone: "+60XXXXXXXXX",
-    // email: "hello@macrobyte.my",
-    // address: {
-    //   "@type": "PostalAddress",
-    //   addressCountry: "MY",
-    // },
-    sameAs: [
-      // Put your socials here if you have them, otherwise remove this whole field
-      // "https://www.linkedin.com/company/....",
-      // "https://www.instagram.com/....",
-    ],
+    serviceArea: {
+      "@type": "Country",
+      name: "Malaysia",
+    },
   };
 
   return (
     <html lang="en">
       <head>
-        <JsonLd data={localBusinessJsonLd} />
+        <JsonLd data={accountingServiceJsonLd} />
       </head>
 
       <body>
