@@ -9,19 +9,19 @@ export default function Home() {
       <section
         style={{
           position: "relative",
-          minHeight: "85vh",
+          minHeight: "calc(100vh - 56px)",
           display: "flex",
-          alignItems: "flex-end",
-          paddingBottom: "clamp(56px, 10vh, 160px)",
+          alignItems: "center",
           overflow: "hidden",
         }}
       >
+        {/* Background image */}
         <div
           style={{
             position: "absolute",
             inset: 0,
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1580192500099-8cd2c8cb9720?auto=format&fit=crop&w=2200&q=90')",
+              "url('https://images.unsplash.com/photo-1574218732130-6b19257fd9db?auto=format&fit=crop&w=2200&q=90')",
             backgroundSize: "cover",
             backgroundPosition: "center 35%",
             backgroundRepeat: "no-repeat",
@@ -32,50 +32,61 @@ export default function Home() {
           }}
         />
 
+        {/* Left-side dark gradient — covers left 45%, fades out by 70% */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(to right, rgba(10,18,35,0.72) 0%, rgba(10,18,35,0.45) 42%, rgba(10,18,35,0.10) 65%, transparent 80%)",
+            zIndex: 0,
+            pointerEvents: "none",
+          }}
+        />
+
         <div
           className="container"
           style={{
             position: "relative",
             zIndex: 1,
-            paddingTop: "clamp(48px, 6vh, 110px)",
           }}
         >
-          <h1
-            style={{
-              fontSize: "clamp(30px, 4.8vw, 60px)",
-              fontWeight: 950,
-              lineHeight: 1.08,
-              maxWidth: 900,
-              margin: 0,
-              color: "#0f172a",
-            }}
-          >
-            We handle the details so you can focus on growing your business.
-          </h1>
-
-          <p
-            style={{
-              marginTop: 18,
-              maxWidth: 700,
-              fontSize: "clamp(14px, 1.4vw, 18px)",
-              lineHeight: 1.7,
-              color: "#334155",
-              fontWeight: 600,
-            }}
-          >
-            The finance structure your business needs, without building an internal team.
-          </p>
-
-          <div style={{ marginTop: 26 }}>
-            <a
-              className="btn-primary"
-              href={waRoot}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ padding: "12px 22px", fontSize: 15 }}
+          {/* Constrain text block to left ~40% of viewport */}
+          <div style={{ maxWidth: "min(600px, 48vw)", minWidth: 280 }}>
+            <h1
+              style={{
+                fontSize: "clamp(26px, 3.6vw, 52px)",
+                fontWeight: 950,
+                lineHeight: 1.1,
+                margin: 0,
+                color: "#ffffff",
+              }}
             >
-              Talk on WhatsApp
-            </a>
+              We handle the details so you can focus on growing your business.
+            </h1>
+
+            <p
+              style={{
+                marginTop: 16,
+                fontSize: "clamp(13px, 1.2vw, 17px)",
+                lineHeight: 1.7,
+                color: "rgba(255,255,255,0.82)",
+                fontWeight: 500,
+              }}
+            >
+              The finance structure your business needs, without building an internal team.
+            </p>
+
+            <div style={{ marginTop: 28 }}>
+              <a
+                className="btn-primary"
+                href={waRoot}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ padding: "12px 22px", fontSize: 15 }}
+              >
+                Talk on WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </section>

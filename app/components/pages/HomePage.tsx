@@ -1,6 +1,5 @@
 import { content, Locale, WHATSAPP } from "@/app/lib/content";
 
-// Original background image
 const BG =
   "url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2000&q=80')";
 
@@ -30,7 +29,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
         style={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(to bottom, transparent 55%, rgb(245,247,250) 100%)",
+          background: "linear-gradient(to bottom, transparent 75%, rgba(245,247,250,0.85) 100%)",
           zIndex: 0,
           pointerEvents: "none",
         }}
