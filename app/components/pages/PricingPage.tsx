@@ -220,10 +220,13 @@ export default function PricingPage({ locale }: { locale: Locale }) {
                   ADD-ON
                 </span>
                 <h2 className="pricing-svc-title">{svc.title}</h2>
-                <div className="pricing-svc-amount" style={{ marginTop: 8 }}>
-                  <span className="pricing-svc-currency">RM</span>
-                  <span className="pricing-svc-number">{svc.amount}</span>
-                  <span className="pricing-svc-per">{t.per}</span>
+                <div style={{ marginTop: 8 }}>
+                  <div className="pricing-svc-from">{t.from}</div>
+                  <div className="pricing-svc-amount">
+                    <span className="pricing-svc-currency">RM</span>
+                    <span className="pricing-svc-number">{svc.amount}</span>
+                  </div>
+                  <div className="pricing-svc-per" style={{ marginTop: 2 }}>{t.per}</div>
                 </div>
                 <ul className="pricing-svc-points" style={{ marginTop: 12 }}>
                   {svc.lines.map((line, i) => (

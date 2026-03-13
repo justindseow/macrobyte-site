@@ -142,30 +142,18 @@ export default function ServicesPage({ locale }: { locale: Locale }) {
                   >
                     {mod.title}
                   </h2>
-                  <p className="svc-tagline" style={{ fontSize: "13px" }}>
+                  <p className="svc-tagline" style={{ fontSize: "13px", minHeight: "40px" }}>
                     {mod.tagline}
                   </p>
                 </div>
 
-                <div
-                  style={{
-                    margin: "10px 0 12px",
-                    fontSize: 18,
-                    fontWeight: 900,
-                    color: "#334155",
-                  }}
-                >
-                  RM{price}
-                  <span
-                    style={{
-                      fontSize: 12,
-                      fontWeight: 600,
-                      color: "#64748b",
-                      marginLeft: 4,
-                    }}
-                  >
-                    {p.per}
-                  </span>
+                <div style={{ margin: "10px 0 12px" }}>
+                  <div className="pricing-svc-from">{p.from}</div>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: 2 }}>
+                    <span style={{ fontSize: 15, fontWeight: 900, color: "#0f172a" }}>RM</span>
+                    <span style={{ fontSize: 26, fontWeight: 950, letterSpacing: "-0.02em", color: "#0f172a" }}>{price}</span>
+                  </div>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: "#64748b", marginTop: 1 }}>{p.per}</div>
                 </div>
 
                 <ul className="svc-list" style={{ fontSize: "13px", flexGrow: 1 }}>

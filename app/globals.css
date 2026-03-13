@@ -612,7 +612,7 @@ a{ color: inherit; }
   font-size: 12px;
   font-weight: 800;
   color: #64748b;
-  margin-bottom: 12px;
+  margin-bottom: 0px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }

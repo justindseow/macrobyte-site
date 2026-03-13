@@ -187,7 +187,7 @@ export const content: Record<Locale, LocaleContent> = {
         tagline: "Your numbers, kept in order every month.",
         items: [
           "Bank reconciliation & transaction categorisation",
-          "Month-end ledger close",
+          "General Ledger",
           "Profit & Loss and Balance Sheet",
           "Trial Balance",
           "Management analysis",
