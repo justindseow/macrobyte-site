@@ -107,14 +107,9 @@ a{ color: inherit; }
   padding: 56px 0 28px;
 }
 
-/* Root page hero section — use dynamic viewport height to avoid mobile chrome issues */
-.hero-root{
-  min-height: calc(100vh - 56px);
-  min-height: calc(100dvh - 56px);
-}
+/* Root page hero section — flex:1 on both main and section fills viewport */
 @media (max-width: 768px){
   .hero-root{
-    min-height: auto;
     padding-top: 56px !important;
     padding-bottom: 48px;
   }

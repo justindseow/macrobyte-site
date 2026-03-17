@@ -5,11 +5,12 @@ export default function Home() {
     "https://wa.me/60134700013?text=Hi.%20I%20would%20like%20to%20enquire%20about%20monthly%20bookkeeping.";
 
   return (
-    <main style={{ position: "relative" }}>
+    <main style={{ position: "relative", flex: 1, display: "flex", flexDirection: "column" }}>
       <section
         className="hero-root"
         style={{
           position: "relative",
+          flex: 1,
           display: "flex",
           alignItems: "flex-start",
           paddingTop: "110px",
