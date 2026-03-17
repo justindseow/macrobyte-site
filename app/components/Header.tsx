@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
   const pathname = usePathname() || "/en";
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const isBM = pathname.startsWith("/bm");
   const isZH = pathname.startsWith("/zh");
@@ -18,6 +20,8 @@ export default function Header() {
     insights: isBM ? "Panduan" : isZH ? "指南" : "Insights",
   };
 
+  const close = () => setMenuOpen(false);
+
   return (
     <header className="site-header">
       <div className="container site-header-inner">
@@ -25,7 +29,8 @@ export default function Header() {
           Macro<span className="accent">Byte</span>
         </a>
 
-        <nav className="nav">
+        {/* Desktop nav */}
+        <nav className="nav nav-desktop">
           <a href={`${base}/services`} className={pathname.includes("/services") ? "nav-active" : ""}>{t.services}</a>
           <a href={`${base}/pricing`} className={pathname.includes("/pricing") ? "nav-active" : ""}>{t.pricing}</a>
           <a href={`${base}/faq`} className={pathname.includes("/faq") ? "nav-active" : ""}>{t.faq}</a>
@@ -38,7 +43,35 @@ export default function Header() {
             <a href="/zh" className={isZH ? "lang-active" : ""} aria-label="中文">ZH</a>
           </div>
         </nav>
+
+        {/* Mobile: lang switcher + hamburger */}
+        <div className="nav-mobile-controls">
+          <div className="lang-switcher">
+            <a href="/en" className={!isBM && !isZH ? "lang-active" : ""} aria-label="English">EN</a>
+            <a href="/bm" className={isBM ? "lang-active" : ""} aria-label="Bahasa Melayu">BM</a>
+            <a href="/zh" className={isZH ? "lang-active" : ""} aria-label="中文">ZH</a>
+          </div>
+          <button
+            className="hamburger"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? "✕" : "☰"}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile dropdown */}
+      {menuOpen && (
+        <nav className="nav-mobile-menu">
+          <a href={`${base}/services`} className={pathname.includes("/services") ? "nav-active" : ""} onClick={close}>{t.services}</a>
+          <a href={`${base}/pricing`} className={pathname.includes("/pricing") ? "nav-active" : ""} onClick={close}>{t.pricing}</a>
+          <a href={`${base}/faq`} className={pathname.includes("/faq") ? "nav-active" : ""} onClick={close}>{t.faq}</a>
+          <a href="/en/insights" className={pathname.includes("/insights") ? "nav-active" : ""} onClick={close}>{t.insights}</a>
+          <a href={`${base}/contact`} className={pathname.includes("/contact") ? "nav-active" : ""} onClick={close}>{t.contact}</a>
+        </nav>
+      )}
     </header>
   );
 }

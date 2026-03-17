@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <main style={{ position: "relative" }}>
       <section
+        className="hero-root"
         style={{
           position: "relative",
-          minHeight: "calc(100vh - 56px)",
           display: "flex",
           alignItems: "flex-start",
           paddingTop: "110px",
@@ -51,8 +51,8 @@ export default function Home() {
             zIndex: 1,
           }}
         >
-          {/* Constrain text block to left ~40% of viewport */}
-          <div style={{ maxWidth: "min(600px, 48vw)", minWidth: 280 }}>
+          {/* Constrain text block to left ~40% of viewport on desktop, full width on mobile */}
+          <div style={{ maxWidth: "min(600px, max(48vw, 320px))" }}>
             <h1
               style={{
                 fontSize: "clamp(26px, 3.6vw, 52px)",
