@@ -152,7 +152,7 @@ export default function PackagesPage({ locale }: { locale: Locale }) {
             </ul>
           </div>
 
-          <ul className="svc-list svc-list-2col" style={{ marginTop: 16 }}>
+          <ul className="svc-list svc-list-2col" style={{ marginTop: 16, textAlign: "left" }}>
             {s.bookkeeping.items.map((item) => (
               <li key={item}>{item}</li>
             ))}
