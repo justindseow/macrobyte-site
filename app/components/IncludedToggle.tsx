@@ -6,7 +6,7 @@ export default function IncludedToggle({ items, twoCol = false }: { items: strin
   const [open, setOpen] = useState(false);
 
   return (
-    <div style={{ marginTop: 10 }}>
+    <div style={{ marginTop: 4 }}>
       <button
         onClick={() => setOpen(!open)}
         style={{
