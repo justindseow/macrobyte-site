@@ -243,22 +243,24 @@ export default function PackagesPage({ locale }: { locale: Locale }) {
                     <li key={i}>{line}</li>
                   ))}
                 </ul>
-                <IncludedToggle items={svc.items} />
-                <a
-                  className="btn-outline-dark"
-                  href={svc.wa}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    marginTop: "auto",
-                    padding: "9px 14px",
-                    fontSize: "13px",
-                    display: "block",
-                    textAlign: "center",
-                  }}
-                >
-                  {svc.cta}
-                </a>
+                <div style={{ marginTop: "auto", paddingTop: 4 }}>
+                  <IncludedToggle items={svc.items} />
+                  <a
+                    className="btn-outline-dark"
+                    href={svc.wa}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      marginTop: 12,
+                      padding: "9px 14px",
+                      fontSize: "13px",
+                      display: "block",
+                      textAlign: "center",
+                    }}
+                  >
+                    {svc.cta}
+                  </a>
+                </div>
               </div>
             ))}
           </div>
