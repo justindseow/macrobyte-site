@@ -342,7 +342,6 @@ const profiles: Profile[] = [
 const THEMES: Theme[] = [
   "cash", "records", "receivables", "payables", "payroll", "compliance", "decisions",
 ];
-const MAX_SCORE = THEMES.length * 3; // 21
 
 function pickQuestions(): Question[] {
   return THEMES.map((theme) => {
@@ -358,13 +357,52 @@ function getProfile(total: number): Profile {
   return profiles[3];
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// UI string translations (quiz questions stay in English)
+// ─────────────────────────────────────────────────────────────────────────────
+
+const ui = {
+  en: {
+    title:      "SME Health Check",
+    hook:       "Most founders score lower than they expect.",
+    lead:       "7 questions across the areas that quietly make or break a business. Find out your financial type.",
+    startBtn:   "Find out your type →",
+    counter:    (c: number, t: number) => `Question ${c} of ${t}`,
+    resultPre:  "Your financial type",
+    resultNote: "MacroByte works with Malaysian SMEs at exactly this stage.",
+    restartBtn: "Retake with a different set of questions",
+  },
+  bm: {
+    title:      "SME Health Check",
+    hook:       "Kebanyakan pengusaha memberi markah lebih rendah daripada yang dijangkakan.",
+    lead:       "7 soalan merangkumi aspek yang mempengaruhi perniagaan anda. Ketahui jenis kewangan anda.",
+    startBtn:   "Ketahui jenis anda →",
+    counter:    (c: number, t: number) => `Soalan ${c} daripada ${t}`,
+    resultPre:  "Jenis kewangan anda",
+    resultNote: "MacroByte bekerja bersama PKS Malaysia di peringkat ini.",
+    restartBtn: "Cuba semula dengan soalan berbeza",
+  },
+  zh: {
+    title:      "SME 财务健康检查",
+    hook:       "大多数创始人的得分比预期的低。",
+    lead:       "7道题，涵盖影响企业的关键领域。了解您的财务类型。",
+    startBtn:   "了解您的类型 →",
+    counter:    (c: number, t: number) => `第 ${c} 题，共 ${t} 题`,
+    resultPre:  "您的财务类型",
+    resultNote: "MacroByte 与马来西亚中小企业在此阶段携手合作。",
+    restartBtn: "用不同的问题重新测试",
+  },
+};
+
+type Locale = "en" | "bm" | "zh";
 type Phase = "intro" | "quiz" | "result";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Component
 // ─────────────────────────────────────────────────────────────────────────────
 
-export default function HealthCheckPage() {
+export default function HealthCheckPage({ locale = "en" }: { locale?: Locale }) {
+  const t = ui[locale];
   const [questions, setQuestions] = useState<Question[]>(pickQuestions);
   const [phase, setPhase] = useState<Phase>("intro");
   const [current, setCurrent] = useState(0);
@@ -426,17 +464,16 @@ export default function HealthCheckPage() {
           {phase === "intro" && (
             <div>
               <h1 className="page-title" style={{ marginBottom: 10 }}>
-                SME Health Check
+                {t.title}
               </h1>
               <p className="page-lead" style={{ marginBottom: 6 }}>
-                Most founders score lower than they expect.
+                {t.hook}
               </p>
               <p className="page-lead" style={{ marginBottom: 28, fontSize: 15 }}>
-                7 questions across the areas that quietly make or break a
-                business. Find out your financial type — and your score out of {MAX_SCORE}.
+                {t.lead}
               </p>
               <button className="hc-start-btn" onClick={startQuiz}>
-                Find out your type →
+                {t.startBtn}
               </button>
             </div>
           )}
@@ -473,7 +510,7 @@ export default function HealthCheckPage() {
               </div>
 
               <p className="hc-q-counter">
-                Question {current + 1} of {questions.length}
+                {t.counter(current + 1, questions.length)}
               </p>
             </div>
           )}
@@ -481,7 +518,7 @@ export default function HealthCheckPage() {
           {/* ── Result ── */}
           {phase === "result" && (
             <div className="hc-result-card">
-              <p className="hc-result-pre">Your financial type</p>
+              <p className="hc-result-pre">{t.resultPre}</p>
               <p className="hc-result-title">{profile.title}</p>
               <span
                 className="hc-pill"
@@ -497,9 +534,7 @@ export default function HealthCheckPage() {
 
               <p className="hc-result-body">{profile.body}</p>
               <hr className="hc-result-divider" />
-              <p className="hc-result-note">
-                MacroByte works with Malaysian SMEs at exactly this stage.
-              </p>
+              <p className="hc-result-note">{t.resultNote}</p>
               <a
                 href={waHref}
                 className="hc-cta-btn"
@@ -509,7 +544,7 @@ export default function HealthCheckPage() {
                 {profile.cta} → WhatsApp us
               </a>
               <button className="hc-restart-btn" onClick={restart}>
-                Retake with a different set of questions
+                {t.restartBtn}
               </button>
             </div>
           )}

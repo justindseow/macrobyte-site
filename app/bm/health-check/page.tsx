@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function BmHealthCheck() {
-  return <HealthCheckPage />;
+  return <HealthCheckPage locale="bm" />;
 }

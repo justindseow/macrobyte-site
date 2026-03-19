@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function ZhHealthCheck() {
-  return <HealthCheckPage />;
+  return <HealthCheckPage locale="zh" />;
 }
