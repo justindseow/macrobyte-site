@@ -11,6 +11,8 @@ export default function Home() {
           display: "flex",
           alignItems: "flex-start",
           paddingTop: "76px",
+          paddingBottom: "72px",
+          minHeight: "420px",
           overflow: "hidden",
         }}
       >
