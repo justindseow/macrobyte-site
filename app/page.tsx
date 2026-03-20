@@ -1,9 +1,6 @@
 // app/page.tsx
 
 export default function Home() {
-  const waRoot =
-    "https://wa.me/60134700013?text=Hi.%20I%20would%20like%20to%20enquire%20about%20monthly%20bookkeeping.";
-
   return (
     <main style={{ position: "relative", flex: 1, display: "flex", flexDirection: "column" }}>
       <section
@@ -78,17 +75,6 @@ export default function Home() {
               The finance structure your business needs, without building an internal team.
             </p>
 
-            <div style={{ marginTop: 28 }}>
-              <a
-                className="btn-primary"
-                href={waRoot}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ padding: "12px 22px", fontSize: 15 }}
-              >
-                Talk on WhatsApp
-              </a>
-            </div>
           </div>
         </div>
       </section>
