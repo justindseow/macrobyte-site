@@ -92,6 +92,34 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Stats strip */}
+      <div className="stats-strip">
+        <div className="container stats-strip-inner">
+          <div className="stat-item">
+            <span className="stat-value">20+</span>
+            <span className="stat-label">Years in Bookkeeping &amp; Finance</span>
+          </div>
+          <div className="stat-divider" />
+          <div className="stat-item">
+            <span className="stat-value">10+</span>
+            <span className="stat-label">Industries Served</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Testimonial */}
+      <div className="quote-section">
+        <div className="container">
+          <blockquote className="quote-card">
+            <p className="quote-text">
+              &ldquo;MacroByte has helped me outsource the finance tasks that kept me up at night.
+              My accounts are always in order and I finally have time to focus on growing my store.&rdquo;
+            </p>
+            <footer className="quote-author">E-Commerce Operator, Kuala Lumpur</footer>
+          </blockquote>
+        </div>
+      </div>
     </main>
   );
 }
