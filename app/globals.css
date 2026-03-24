@@ -1394,6 +1394,10 @@ select option {
   .pricing-bk-top{ flex-direction: column; gap: 20px; }
   .pricing-bk-main{ padding: 24px 20px 20px; }
   .insights-grid{ grid-template-columns: 1fr; }
+  .included-list-twocol{ display: flex; flex-direction: column; }
+}
+@media (min-width: 901px){
+  .included-list-twocol{ display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; }
 }
 
 /* ===== Root page — Stats strip ===== */

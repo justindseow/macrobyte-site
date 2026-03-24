@@ -37,11 +37,11 @@ export default function IncludedToggle({ items, twoCol = false }: { items: strin
             marginTop: 10,
             padding: 0,
             listStyle: "none",
-            display: twoCol ? "grid" : "flex",
-            gridTemplateColumns: twoCol ? "1fr 1fr" : undefined,
-            flexDirection: twoCol ? undefined : "column",
-            gap: twoCol ? "4px 20px" : "4px 0",
+            display: "flex",
+            flexDirection: "column",
+            gap: "4px 0",
           }}
+          className={twoCol ? "included-list-twocol" : undefined}
         >
           {items.map((item) => (
             <li
