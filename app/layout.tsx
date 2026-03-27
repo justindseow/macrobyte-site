@@ -2,6 +2,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import { Analytics } from "@vercel/analytics/next";
 
 const SITE_URL = "https://macrobyte.my";
 const BRAND = "MacroByte";
@@ -106,6 +107,7 @@ export default async function RootLayout({
         <Header />
         {children}
 
+        <Analytics />
         <footer className="site-footer">
           <div className="container site-footer-inner">
             <p>© {new Date().getFullYear()} {BRAND}</p>
